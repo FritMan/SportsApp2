@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="App2.Pages.DataPage" Tag="Тренеры и спортсмены">
+	<Grid ColumnDefinitions="*, *" RowDefinitions="50, 30,  *, 50">
+		<Button Name="BackBtn" Content="Назад"
+				Click="backBtnClick" />
+		<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+			<Label Content="Поиск:"/>
+			<TextBox Name="SearchTb" KeyUp="searchTbKeyUp"/>
+		</StackPanel>
+	
+		<DataGrid Grid.Row="2" Name="SportsmanDG" BorderThickness="1" BorderBrush="Black"
+				  Margin="5"  IsReadOnly="True" >
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
+				<DataGridTextColumn Header="Пол" Binding="{Binding Gender.Name}"/>
+				<DataGridTextColumn Header="Дата рождения" Binding="{Binding BirthDate, StringFormat={}{0:dd.MM.yyyy}}}"/>
+			</DataGrid.Columns>
+		</DataGrid>
+
+		<DataGrid Grid.Column="1" Grid.Row="2" Name="CoachesDG" BorderThickness="1" BorderBrush="Black"
+		  Margin="5"  IsReadOnly="True" >
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
+				<DataGridTextColumn Header="Пол" Binding="{Binding Gender.Name}"/>
+				<DataGridTextColumn Header="Дата рождения" Binding="{Binding BirthDate, StringFormat={}{0:dd.MM.yyyy}}}"/>
+			</DataGrid.Columns>
+		</DataGrid>
+
+		<StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal">
+			<Button Name="AddSportmanBtn" Content="Добавить" Click="addSportsmanBtnClick"/>
+			<Button Name="EditSportmanBtn" Content="Изменить" Click="editSportsmanBtnClcik"/>
+			<Button Name="DeleteSportmanBtn" Content="Удалить" Background="Red" Click ="deleteSportsmanBtnClick" />
+		</StackPanel>
+
+		<StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+			<Button Name="AddCoachesBtn" Grid.Column="1" Content="Добавить" Click="addCoachesBtnClick"/>
+			<Button Name="EditCoachesBtn" Grid.Column="1" Content="Изменить" Click ="editCoachesBtnClcik" />
+			<Button Name="DeleteCoachesBtn" Grid.Column="1" Content="Удалить" Background="Red" Click ="deleteCoachesBtnClick"/>
+		</StackPanel>
+	</Grid>
+</UserControl>

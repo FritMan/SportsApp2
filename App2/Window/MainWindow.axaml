@@ -1,0 +1,16 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="App2.MainWindow"
+        Title="App2" Width="800" Height="400" >
+	<Grid ColumnDefinitions ="200, *, 200" RowDefinitions ="50, * " >
+		<Image Width = "50" Height ="50 "  Source="/Assets/logo.jpg" />
+		<Label Grid.Column ="1" Content ="Главное меню" HorizontalAlignment="Center"
+			   VerticalAlignment="Center"/>
+		<Button  Name ="ExitBtn" Grid.Column ="3" Background ="Red" Content ="Выход" Margin ="5"
+				 Click="exitBtnClick"/>
+	   <ContentControl Grid.Row="1" Grid.ColumnSpan="3" Name="MainFrame"/>
+	</Grid>
+</Window>
